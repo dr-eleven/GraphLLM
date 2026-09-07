@@ -159,6 +159,17 @@ bash run_evaluate.sh
 
 `evaluate_trained_model_note.py` 可用于检查 prompt 重建、答案提取和指标统计。
 
+### 5.1 论文 Table 1 中 GraphSSR 的主要结果
+
+下表摘录论文 Table 1 中与当前主要零样本评测设置对应的四组结果。`Candidate categories` 表示每条任务 prompt 中可供模型选择的候选类别数量，指标为 Accuracy（%）。
+
+| 数据集 | 任务 | Candidate categories | GraphSSR Accuracy (%) |
+|---|---|---:|---:|
+| Cora | 节点分类 | 7 | 72.41 |
+| WikiCS | 节点分类 | 10 | 79.40 |
+| Products | 节点分类 | 47 | 68.49 |
+| FB15K237 | 链接分类 | 10 | 78.94 |
+
 ## 6. 常见问题
 
 - 路径错误：检查脚本和 YAML 中的绝对路径，不要只修改 README 命令。
