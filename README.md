@@ -1,5 +1,7 @@
 # GraphSSR
 
+当前开发分支：`haozhang-dev`。
+
 源代码网站：【https://github.com/mysteriouslfz/GraphSSR】
 
 ## 1. 环境配置
@@ -176,6 +178,3 @@ bash run_evaluate.sh
   year={2026}
 }
 ```
-## 开发分支
-
-当前分支：`haozhang-dev`。
