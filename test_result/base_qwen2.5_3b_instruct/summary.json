@@ -1,0 +1,380 @@
+{
+  "definitions": {
+    "generation": "greedy, max_response_tokens=8192, max_model_len=16384",
+    "high_repetition": "a normalized long line repeats >=8 times or a 32-token n-gram repeats >=5 times",
+    "real_pred": "complete XML + five distinct real subgraphs + consistent choice + correct answer + EOS + no high repetition",
+    "legacy_reward": "the current reinforcement_learning/verl/utils/reward_score/subgraph_size.py result, retained only for direct comparison"
+  },
+  "global": {
+    "count": 600,
+    "answer_correct": {
+      "count": 152,
+      "rate": 0.25333333333333335
+    },
+    "xml_complete": {
+      "count": 297,
+      "rate": 0.495
+    },
+    "exact_five_subgraphs": {
+      "count": 300,
+      "rate": 0.5
+    },
+    "strict_real_subgraphs": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "distinct_five_subgraphs": {
+      "count": 49,
+      "rate": 0.08166666666666667
+    },
+    "has_central_only_subgraph": {
+      "count": 8,
+      "rate": 0.013333333333333334
+    },
+    "chosen_consistent": {
+      "count": 273,
+      "rate": 0.455
+    },
+    "stopped_on_eos": {
+      "count": 545,
+      "rate": 0.9083333333333333
+    },
+    "length_truncated": {
+      "count": 55,
+      "rate": 0.09166666666666666
+    },
+    "high_repetition": {
+      "count": 398,
+      "rate": 0.6633333333333333
+    },
+    "real_pred": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "legacy_pred": {
+      "count": 152,
+      "rate": 0.25333333333333335
+    },
+    "legacy_real_pred": {
+      "count": 81,
+      "rate": 0.135
+    },
+    "legacy_reward": {
+      "mean": 0.171,
+      "distribution": {
+        "0.0": 200,
+        "0.05": 206,
+        "0.1": 113,
+        "1.0": 81
+      }
+    },
+    "finish_reason": {
+      "length": 55,
+      "stop": 545
+    },
+    "response_tokens": {
+      "mean": 2747.065,
+      "p50": 2001.5,
+      "p95": 8192.0,
+      "max": 8192
+    }
+  },
+  "by_task": {
+    "cora_node+nc": {
+      "count": 150,
+      "answer_correct": {
+        "count": 18,
+        "rate": 0.12
+      },
+      "xml_complete": {
+        "count": 27,
+        "rate": 0.18
+      },
+      "exact_five_subgraphs": {
+        "count": 27,
+        "rate": 0.18
+      },
+      "strict_real_subgraphs": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "distinct_five_subgraphs": {
+        "count": 7,
+        "rate": 0.04666666666666667
+      },
+      "has_central_only_subgraph": {
+        "count": 2,
+        "rate": 0.013333333333333334
+      },
+      "chosen_consistent": {
+        "count": 25,
+        "rate": 0.16666666666666666
+      },
+      "stopped_on_eos": {
+        "count": 118,
+        "rate": 0.7866666666666666
+      },
+      "length_truncated": {
+        "count": 32,
+        "rate": 0.21333333333333335
+      },
+      "high_repetition": {
+        "count": 114,
+        "rate": 0.76
+      },
+      "real_pred": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "legacy_pred": {
+        "count": 18,
+        "rate": 0.12
+      },
+      "legacy_real_pred": {
+        "count": 15,
+        "rate": 0.1
+      },
+      "legacy_reward": {
+        "mean": 0.14466666666666667,
+        "distribution": {
+          "0.0": 10,
+          "0.05": 116,
+          "0.1": 9,
+          "1.0": 15
+        }
+      },
+      "finish_reason": {
+        "length": 32,
+        "stop": 118
+      },
+      "response_tokens": {
+        "mean": 3335.6266666666666,
+        "p50": 2302.5,
+        "p95": 8192.0,
+        "max": 8192
+      }
+    },
+    "fb15k237+lc": {
+      "count": 150,
+      "answer_correct": {
+        "count": 25,
+        "rate": 0.16666666666666666
+      },
+      "xml_complete": {
+        "count": 90,
+        "rate": 0.6
+      },
+      "exact_five_subgraphs": {
+        "count": 91,
+        "rate": 0.6066666666666667
+      },
+      "strict_real_subgraphs": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "distinct_five_subgraphs": {
+        "count": 20,
+        "rate": 0.13333333333333333
+      },
+      "has_central_only_subgraph": {
+        "count": 2,
+        "rate": 0.013333333333333334
+      },
+      "chosen_consistent": {
+        "count": 76,
+        "rate": 0.5066666666666667
+      },
+      "stopped_on_eos": {
+        "count": 140,
+        "rate": 0.9333333333333333
+      },
+      "length_truncated": {
+        "count": 10,
+        "rate": 0.06666666666666667
+      },
+      "high_repetition": {
+        "count": 95,
+        "rate": 0.6333333333333333
+      },
+      "real_pred": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "legacy_pred": {
+        "count": 25,
+        "rate": 0.16666666666666666
+      },
+      "legacy_real_pred": {
+        "count": 5,
+        "rate": 0.03333333333333333
+      },
+      "legacy_reward": {
+        "mean": 0.059666666666666666,
+        "distribution": {
+          "0.0": 89,
+          "0.05": 33,
+          "0.1": 23,
+          "1.0": 5
+        }
+      },
+      "finish_reason": {
+        "length": 10,
+        "stop": 140
+      },
+      "response_tokens": {
+        "mean": 2909.733333333333,
+        "p50": 2494.5,
+        "p95": 8192.0,
+        "max": 8192
+      }
+    },
+    "products+nc": {
+      "count": 150,
+      "answer_correct": {
+        "count": 54,
+        "rate": 0.36
+      },
+      "xml_complete": {
+        "count": 108,
+        "rate": 0.72
+      },
+      "exact_five_subgraphs": {
+        "count": 110,
+        "rate": 0.7333333333333333
+      },
+      "strict_real_subgraphs": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "distinct_five_subgraphs": {
+        "count": 17,
+        "rate": 0.11333333333333333
+      },
+      "has_central_only_subgraph": {
+        "count": 3,
+        "rate": 0.02
+      },
+      "chosen_consistent": {
+        "count": 103,
+        "rate": 0.6866666666666666
+      },
+      "stopped_on_eos": {
+        "count": 143,
+        "rate": 0.9533333333333334
+      },
+      "length_truncated": {
+        "count": 7,
+        "rate": 0.04666666666666667
+      },
+      "high_repetition": {
+        "count": 94,
+        "rate": 0.6266666666666667
+      },
+      "real_pred": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "legacy_pred": {
+        "count": 54,
+        "rate": 0.36
+      },
+      "legacy_real_pred": {
+        "count": 24,
+        "rate": 0.16
+      },
+      "legacy_reward": {
+        "mean": 0.19366666666666668,
+        "distribution": {
+          "0.0": 66,
+          "0.05": 19,
+          "0.1": 41,
+          "1.0": 24
+        }
+      },
+      "finish_reason": {
+        "stop": 143,
+        "length": 7
+      },
+      "response_tokens": {
+        "mean": 1878.8866666666668,
+        "p50": 1536.0,
+        "p95": 3671.6999999999953,
+        "max": 8192
+      }
+    },
+    "wikics+nc": {
+      "count": 150,
+      "answer_correct": {
+        "count": 55,
+        "rate": 0.36666666666666664
+      },
+      "xml_complete": {
+        "count": 72,
+        "rate": 0.48
+      },
+      "exact_five_subgraphs": {
+        "count": 72,
+        "rate": 0.48
+      },
+      "strict_real_subgraphs": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "distinct_five_subgraphs": {
+        "count": 5,
+        "rate": 0.03333333333333333
+      },
+      "has_central_only_subgraph": {
+        "count": 1,
+        "rate": 0.006666666666666667
+      },
+      "chosen_consistent": {
+        "count": 69,
+        "rate": 0.46
+      },
+      "stopped_on_eos": {
+        "count": 144,
+        "rate": 0.96
+      },
+      "length_truncated": {
+        "count": 6,
+        "rate": 0.04
+      },
+      "high_repetition": {
+        "count": 95,
+        "rate": 0.6333333333333333
+      },
+      "real_pred": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "legacy_pred": {
+        "count": 55,
+        "rate": 0.36666666666666664
+      },
+      "legacy_real_pred": {
+        "count": 37,
+        "rate": 0.24666666666666667
+      },
+      "legacy_reward": {
+        "mean": 0.286,
+        "distribution": {
+          "0.0": 35,
+          "0.05": 38,
+          "0.1": 40,
+          "1.0": 37
+        }
+      },
+      "finish_reason": {
+        "stop": 144,
+        "length": 6
+      },
+      "response_tokens": {
+        "mean": 2864.0133333333333,
+        "p50": 2259.5,
+        "p95": 6361.699999999999,
+        "max": 8192
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+### LoRA merge configuration for GraphSSR 1.5B SFT
+# Do not set quantization_bit/export_quantization_bit while merging an adapter.
+
+### model
+model_name_or_path: /opt/data/private/Graph-R1-main/locals/DeepSeek-R1-Distill-Qwen-1.5B
+adapter_name_or_path: /opt/data/private/GraphSSR-master/outputs/sft/ds1.5b_lora
+template: deepseekr1
+trust_remote_code: false
+
+### export
+export_dir: /opt/data/private/GraphSSR-master/outputs/sft/ds1.5b_lora_merged
+export_size: 5
+# The installed LLaMA-Factory accepts `cpu` or `auto`; CPU avoids occupying GPU memory.
+export_device: cpu
+export_legacy_format: false
+
+# Run from any directory:
+# /opt/data/private/conda/envs/graphssr/bin/python -m llamafactory.cli export /opt/data/private/GraphSSR-master/supervised_finetuning/merge.yaml

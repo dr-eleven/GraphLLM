@@ -1,0 +1,15 @@
+{
+  "model_path": "/opt/data/private/Graph-R1-main/locals/Qwen/Qwen2.5-3B-Instruct",
+  "model_config_sha256": "eed00b17e22553979d090fa492e587e92885e328914c8e0b0b78f0a0d3576b3b",
+  "model_weight_index_sha256": "bc8aaa0c87d4335177e01c765f1de0db81661c67c1a72fbfb0d521b09f5ddc56",
+  "graphssr_sft_used": false,
+  "data_path": "/opt/data/private/GraphSSR-master/outputs/synthetic_data/rl_data/test_600_graphr2_subgraph.parquet",
+  "evaluation_script": "/opt/data/private/GraphSSR-master/evaluation/evaluate_sft_ssr_600.py",
+  "decoding": "greedy",
+  "max_model_len": 16384,
+  "max_response_tokens": 8192,
+  "batch_size": 8,
+  "tensor_parallel_size": 1,
+  "gpu_memory_utilization": 0.9,
+  "started_at": "2026-08-31T00:42:20.305185+08:00"
+}

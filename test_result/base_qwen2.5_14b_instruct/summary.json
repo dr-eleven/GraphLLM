@@ -1,0 +1,375 @@
+{
+  "definitions": {
+    "generation": "greedy, max_response_tokens=8192, max_model_len=16384",
+    "high_repetition": "a normalized long line repeats >=8 times or a 32-token n-gram repeats >=5 times",
+    "real_pred": "complete XML + five distinct real subgraphs + consistent choice + correct answer + EOS + no high repetition",
+    "legacy_reward": "the current reinforcement_learning/verl/utils/reward_score/subgraph_size.py result, retained only for direct comparison"
+  },
+  "global": {
+    "count": 600,
+    "answer_correct": {
+      "count": 375,
+      "rate": 0.625
+    },
+    "xml_complete": {
+      "count": 599,
+      "rate": 0.9983333333333333
+    },
+    "exact_five_subgraphs": {
+      "count": 599,
+      "rate": 0.9983333333333333
+    },
+    "strict_real_subgraphs": {
+      "count": 150,
+      "rate": 0.25
+    },
+    "distinct_five_subgraphs": {
+      "count": 489,
+      "rate": 0.815
+    },
+    "has_central_only_subgraph": {
+      "count": 600,
+      "rate": 1.0
+    },
+    "chosen_consistent": {
+      "count": 582,
+      "rate": 0.97
+    },
+    "stopped_on_eos": {
+      "count": 600,
+      "rate": 1.0
+    },
+    "length_truncated": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "high_repetition": {
+      "count": 0,
+      "rate": 0.0
+    },
+    "real_pred": {
+      "count": 93,
+      "rate": 0.155
+    },
+    "legacy_pred": {
+      "count": 375,
+      "rate": 0.625
+    },
+    "legacy_real_pred": {
+      "count": 176,
+      "rate": 0.29333333333333333
+    },
+    "legacy_reward": {
+      "mean": 0.31233333333333335,
+      "distribution": {
+        "0.0": 307,
+        "0.05": 6,
+        "0.1": 111,
+        "1.0": 176
+      }
+    },
+    "finish_reason": {
+      "stop": 600
+    },
+    "response_tokens": {
+      "mean": 971.1133333333333,
+      "p50": 912.5,
+      "p95": 1381.999999999999,
+      "max": 2942
+    }
+  },
+  "by_task": {
+    "cora_node+nc": {
+      "count": 150,
+      "answer_correct": {
+        "count": 100,
+        "rate": 0.6666666666666666
+      },
+      "xml_complete": {
+        "count": 150,
+        "rate": 1.0
+      },
+      "exact_five_subgraphs": {
+        "count": 150,
+        "rate": 1.0
+      },
+      "strict_real_subgraphs": {
+        "count": 34,
+        "rate": 0.22666666666666666
+      },
+      "distinct_five_subgraphs": {
+        "count": 119,
+        "rate": 0.7933333333333333
+      },
+      "has_central_only_subgraph": {
+        "count": 150,
+        "rate": 1.0
+      },
+      "chosen_consistent": {
+        "count": 147,
+        "rate": 0.98
+      },
+      "stopped_on_eos": {
+        "count": 150,
+        "rate": 1.0
+      },
+      "length_truncated": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "high_repetition": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "real_pred": {
+        "count": 23,
+        "rate": 0.15333333333333332
+      },
+      "legacy_pred": {
+        "count": 100,
+        "rate": 0.6666666666666666
+      },
+      "legacy_real_pred": {
+        "count": 50,
+        "rate": 0.3333333333333333
+      },
+      "legacy_reward": {
+        "mean": 0.35233333333333333,
+        "distribution": {
+          "0.0": 71,
+          "0.05": 1,
+          "0.1": 28,
+          "1.0": 50
+        }
+      },
+      "finish_reason": {
+        "stop": 150
+      },
+      "response_tokens": {
+        "mean": 920.3666666666667,
+        "p50": 886.0,
+        "p95": 1158.85,
+        "max": 1745
+      }
+    },
+    "fb15k237+lc": {
+      "count": 150,
+      "answer_correct": {
+        "count": 85,
+        "rate": 0.5666666666666667
+      },
+      "xml_complete": {
+        "count": 149,
+        "rate": 0.9933333333333333
+      },
+      "exact_five_subgraphs": {
+        "count": 149,
+        "rate": 0.9933333333333333
+      },
+      "strict_real_subgraphs": {
+        "count": 5,
+        "rate": 0.03333333333333333
+      },
+      "distinct_five_subgraphs": {
+        "count": 121,
+        "rate": 0.8066666666666666
+      },
+      "has_central_only_subgraph": {
+        "count": 150,
+        "rate": 1.0
+      },
+      "chosen_consistent": {
+        "count": 144,
+        "rate": 0.96
+      },
+      "stopped_on_eos": {
+        "count": 150,
+        "rate": 1.0
+      },
+      "length_truncated": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "high_repetition": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "real_pred": {
+        "count": 2,
+        "rate": 0.013333333333333334
+      },
+      "legacy_pred": {
+        "count": 85,
+        "rate": 0.5666666666666667
+      },
+      "legacy_real_pred": {
+        "count": 16,
+        "rate": 0.10666666666666667
+      },
+      "legacy_reward": {
+        "mean": 0.11933333333333333,
+        "distribution": {
+          "0.0": 114,
+          "0.05": 2,
+          "0.1": 18,
+          "1.0": 16
+        }
+      },
+      "finish_reason": {
+        "stop": 150
+      },
+      "response_tokens": {
+        "mean": 1102.2066666666667,
+        "p50": 1035.5,
+        "p95": 1643.8499999999988,
+        "max": 2942
+      }
+    },
+    "products+nc": {
+      "count": 150,
+      "answer_correct": {
+        "count": 83,
+        "rate": 0.5533333333333333
+      },
+      "xml_complete": {
+        "count": 150,
+        "rate": 1.0
+      },
+      "exact_five_subgraphs": {
+        "count": 150,
+        "rate": 1.0
+      },
+      "strict_real_subgraphs": {
+        "count": 60,
+        "rate": 0.4
+      },
+      "distinct_five_subgraphs": {
+        "count": 130,
+        "rate": 0.8666666666666667
+      },
+      "has_central_only_subgraph": {
+        "count": 150,
+        "rate": 1.0
+      },
+      "chosen_consistent": {
+        "count": 147,
+        "rate": 0.98
+      },
+      "stopped_on_eos": {
+        "count": 150,
+        "rate": 1.0
+      },
+      "length_truncated": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "high_repetition": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "real_pred": {
+        "count": 34,
+        "rate": 0.22666666666666666
+      },
+      "legacy_pred": {
+        "count": 83,
+        "rate": 0.5533333333333333
+      },
+      "legacy_real_pred": {
+        "count": 47,
+        "rate": 0.31333333333333335
+      },
+      "legacy_reward": {
+        "mean": 0.3396666666666667,
+        "distribution": {
+          "0.0": 63,
+          "0.05": 1,
+          "0.1": 39,
+          "1.0": 47
+        }
+      },
+      "finish_reason": {
+        "stop": 150
+      },
+      "response_tokens": {
+        "mean": 885.7266666666667,
+        "p50": 861.5,
+        "p95": 1096.1499999999999,
+        "max": 1589
+      }
+    },
+    "wikics+nc": {
+      "count": 150,
+      "answer_correct": {
+        "count": 107,
+        "rate": 0.7133333333333334
+      },
+      "xml_complete": {
+        "count": 150,
+        "rate": 1.0
+      },
+      "exact_five_subgraphs": {
+        "count": 150,
+        "rate": 1.0
+      },
+      "strict_real_subgraphs": {
+        "count": 51,
+        "rate": 0.34
+      },
+      "distinct_five_subgraphs": {
+        "count": 119,
+        "rate": 0.7933333333333333
+      },
+      "has_central_only_subgraph": {
+        "count": 150,
+        "rate": 1.0
+      },
+      "chosen_consistent": {
+        "count": 144,
+        "rate": 0.96
+      },
+      "stopped_on_eos": {
+        "count": 150,
+        "rate": 1.0
+      },
+      "length_truncated": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "high_repetition": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "real_pred": {
+        "count": 34,
+        "rate": 0.22666666666666666
+      },
+      "legacy_pred": {
+        "count": 107,
+        "rate": 0.7133333333333334
+      },
+      "legacy_real_pred": {
+        "count": 63,
+        "rate": 0.42
+      },
+      "legacy_reward": {
+        "mean": 0.438,
+        "distribution": {
+          "0.0": 59,
+          "0.05": 2,
+          "0.1": 26,
+          "1.0": 63
+        }
+      },
+      "finish_reason": {
+        "stop": 150
+      },
+      "response_tokens": {
+        "mean": 976.1533333333333,
+        "p50": 902.0,
+        "p95": 1544.1999999999982,
+        "max": 2684
+      }
+    }
+  }
+}

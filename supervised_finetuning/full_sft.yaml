@@ -1,0 +1,57 @@
+### GraphSSR role
+# This configuration defines the supervised fine-tuning stage over `graph_sft_data.json`.
+# It is consumed by LlamaFactory after the SFT data generation pipeline finishes.
+
+### model
+model_name_or_path: /opt/data/private/GraphSSR-master/locals/DeepSeek-R1-Distill-Qwen-14B
+trust_remote_code: false
+
+### method
+stage: sft
+do_train: true
+finetuning_type: full
+# Shard model, gradient, and optimizer states across GPUs. Without ZeRO-3,
+# full fine-tuning exhausts a 24 GiB GPU before the first optimizer step.
+deepspeed: ds_z3_config.json
+
+### dataset
+dataset: graph_data
+dataset_dir: /opt/data/private/GraphSSR-master/supervised_finetuning
+template: deepseekr1
+# 8192 tokens materializes roughly 4.6 GiB of FP32 logits alone for this
+# 151936-token vocabulary. Match the full-SFT reference configuration so the
+# complete forward/backward pass fits on 24 GiB GPUs.
+cutoff_len: 8192
+max_samples: null
+overwrite_cache: true
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+
+### output
+output_dir: /opt/data/private/GraphSSR-master/outputs/sft/ds14b
+logging_steps: 10
+save_steps: 100
+# A ZeRO-3 checkpoint is about 24 GiB. Retaining every checkpoint exhausted
+# the workspace quota, so keep only the two most recent resumable checkpoints.
+plot_loss: true
+overwrite_output_dir: true
+save_only_model: false
+report_to: none  # choices: [none, wandb, tensorboard, swanlab, mlflow]
+
+### train
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 2
+learning_rate: 1.0e-5
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+bf16: true
+ddp_timeout: 180000000
+# Let Transformers pick the highest-numbered checkpoint in output_dir.
+resume_from_checkpoint: true
+### eval
+# eval_dataset: alpaca_en_demo
+# val_size: 0.1
+# per_device_eval_batch_size: 1
+# eval_strategy: steps
+# eval_steps: 500

@@ -1,0 +1,65 @@
+### GraphSSR role
+# LoRA SFT for the local Qwen2.5-3B-Instruct checkpoint.  This keeps the
+# three-epoch GraphSSR schedule while using a near-paper global batch size on
+# the three available GPUs.
+
+### model
+model_name_or_path: /opt/data/private/Graph-R1-main/locals/Qwen/Qwen2.5-3B-Instruct
+trust_remote_code: false
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_rank: 32
+lora_alpha: 32
+lora_dropout: 0.05
+lora_target: all
+
+# ZeRO-3 CPU offload keeps long-sequence LoRA SFT within the 24 GiB/GPU limit.
+deepspeed: /opt/data/private/Graph-R1-main/code/LLaMA-Factory/examples/deepspeed/ds_z3_offload_config.json
+
+### dataset
+dataset: graph_data_lora_sft_3b_filtered
+dataset_dir: /opt/data/private/GraphSSR-master/supervised_finetuning
+template: qwen
+# LoRA 3B SFT token-length source of truth: count the complete formatted
+# prompt + response trajectory (including template special tokens/EOS). The
+# launch script drops longer samples instead of truncating their XML/EOS suffix.
+cutoff_len: 10240
+max_samples: null
+overwrite_cache: true
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+dataloader_pin_memory: false
+
+### output
+output_dir: /opt/data/private/GraphSSR-master/outputs/sft/ds3b_lora
+save_steps: 100
+save_total_limit: 2
+logging_steps: 10
+plot_loss: true
+overwrite_output_dir: true
+save_only_model: false
+report_to: none
+
+### train
+per_device_train_batch_size: 1
+# With three GPUs this gives a global batch of 1 * 3 * 21 = 63, closely
+# matching the paper's total batch size of 64.
+gradient_accumulation_steps: 21
+
+# A conservative LoRA rate between the paper's 1e-5 full-SFT rate and the
+# existing 1.5B LoRA rate of 1e-4.
+learning_rate: 5.0e-5
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+bf16: true
+gradient_checkpointing: true
+ddp_timeout: 180000000
+resume_from_checkpoint: null
+
+### eval
+# No held-out SFT split is supplied by GraphSSR.  Evaluate the merged SFT model
+# on the SSR validation set before starting RL.

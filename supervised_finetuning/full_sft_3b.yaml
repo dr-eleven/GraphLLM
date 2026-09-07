@@ -1,0 +1,58 @@
+### GraphSSR role
+# This configuration defines the supervised fine-tuning stage over `graph_sft_data.json`.
+# It is consumed by LlamaFactory after the SFT data generation pipeline finishes.
+
+### model
+model_name_or_path: /opt/data/private/Graph-R1-main/locals/Qwen/Qwen2.5-3B-Instruct
+trust_remote_code: false
+
+### method
+stage: sft
+do_train: true
+finetuning_type: full
+# Shard model, gradient, and optimizer states across GPUs. Without ZeRO-3,
+# full fine-tuning exhausts a 24 GiB GPU before the first optimizer step.
+deepspeed: /opt/data/private/Graph-R1-main/code/LLaMA-Factory/examples/deepspeed/ds_z3_offload_config.json
+### dataset
+dataset: graph_data_full_sft_3b_filtered
+dataset_dir: /opt/data/private/GraphSSR-master/supervised_finetuning
+template: qwen
+# For Qwen2.5-3B's 151936-token vocabulary, 8192 tokens would materialize
+# roughly 4.6 GiB of FP32 logits alone. Keep sequences at 2048 tokens so the
+# complete forward/backward pass fits on 24 GiB GPUs with ZeRO-3 offload.
+cutoff_len: 8192
+max_samples: null
+overwrite_cache: true
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+dataloader_pin_memory: false
+
+### output
+output_dir: /opt/data/private/GraphSSR-master/outputs/sft_checkpoints/graphssr_sft_3b
+logging_steps: 10
+save_steps: 100
+save_total_limit: 2
+plot_loss: true
+overwrite_output_dir: true
+save_only_model: false
+report_to: none  # choices: [none, wandb, tensorboard, swanlab, mlflow]
+
+### train
+# Keep the physical batch small: Qwen2.5-3B's large vocab makes CE loss
+# materialize very large logits/log-softmax tensors.
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 2
+learning_rate: 1.0e-5
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+bf16: true
+ddp_timeout: 180000000
+resume_from_checkpoint: null
+
+### eval
+# eval_dataset: alpaca_en_demo
+# val_size: 0.1
+# per_device_eval_batch_size: 1
+# eval_strategy: steps
+# eval_steps: 500

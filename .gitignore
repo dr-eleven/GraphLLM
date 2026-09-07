@@ -1,0 +1,36 @@
+# Datasets, generated artifacts, model weights, and training checkpoints
+data/
+# Keep generated checkpoints/results out of Git, but publish the synthetic
+# training data requested for this repository via Git LFS.
+outputs/*
+!outputs/synthetic_data/
+!outputs/synthetic_data/**
+locals/
+
+# Runtime logs and experiment trackers
+logs/
+*.log
+*.out
+*.pid
+wandb/
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Local caches and secrets
+.cache/
+.env
+.env.*
+!.env.example
+
+# IDE and operating-system files
+.vscode/
+.idea/
+.DS_Store

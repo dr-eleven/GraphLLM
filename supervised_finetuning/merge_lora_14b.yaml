@@ -1,0 +1,13 @@
+### Merge the completed GraphSSR Qwen2.5-14B LoRA SFT adapter.
+
+### model
+model_name_or_path: /opt/data/private/Graph-R1-main/locals/Qwen/Qwen2.5-14B-Instruct
+adapter_name_or_path: /opt/data/private/GraphSSR-master/outputs/sft/qwen2.5_14b_lora
+template: qwen
+trust_remote_code: false
+
+### export
+export_dir: /opt/data/private/GraphSSR-master/outputs/sft/qwen2.5_14b_lora_merged
+export_size: 5
+export_device: cpu
+export_legacy_format: false

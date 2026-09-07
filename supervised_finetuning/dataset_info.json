@@ -1,0 +1,50 @@
+{
+  "graph_data": {
+    "file_name": "/opt/data/private/GraphSSR-master/outputs/synthetic_data/sft_data/graph_sft_data.json",
+    "columns": {
+      "prompt": "",
+      "query": "prompt",
+      "response": "response"
+    }
+  },
+  "graph_data_full_sft_filtered": {
+    "file_name": "/opt/data/private/GraphSSR-master/outputs/synthetic_data/sft_data/graph_sft_data.filtered.full_sft.json",
+    "columns": {
+      "prompt": "",
+      "query": "prompt",
+      "response": "response"
+    }
+  },
+  "graph_data_full_sft_3b_filtered": {
+    "file_name": "/opt/data/private/GraphSSR-master/outputs/synthetic_data/sft_data/graph_sft_data.filtered.full_sft_3b.json",
+    "columns": {
+      "prompt": "",
+      "query": "prompt",
+      "response": "response"
+    }
+  },
+  "graph_data_lora_sft_1_5b_filtered": {
+    "file_name": "/opt/data/private/GraphSSR-master/outputs/synthetic_data/sft_data/graph_sft_data.filtered.lora_sft_1.5b.json",
+    "columns": {
+      "prompt": "",
+      "query": "prompt",
+      "response": "response"
+    }
+  },
+  "graph_data_lora_sft_3b_filtered": {
+    "file_name": "/opt/data/private/GraphSSR-master/outputs/synthetic_data/sft_data/graph_sft_data.filtered.lora_sft_3b.json",
+    "columns": {
+      "prompt": "",
+      "query": "prompt",
+      "response": "response"
+    }
+  },
+  "graph_data_lora_sft_14b_filtered": {
+    "file_name": "/opt/data/private/GraphSSR-master/outputs/synthetic_data/sft_data/graph_sft_data.filtered.lora_sft_14b.json",
+    "columns": {
+      "prompt": "",
+      "query": "prompt",
+      "response": "response"
+    }
+  }
+}
